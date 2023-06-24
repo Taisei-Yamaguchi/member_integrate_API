@@ -1,0 +1,2 @@
+# member_integrate_API
+snackとchatのメンバー情報をつなぐAPI
