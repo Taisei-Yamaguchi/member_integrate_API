@@ -44,7 +44,7 @@ class IntegrateController extends Controller
 
         if (!isset($member)) {
             return response()->json([
-                "error"=>"not found"
+                "error"=>"お探しのアカウントは見つかりませんでした。"
             ]);
         }
 
