@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Config;
 
 //2023.6.24 APIrequestを認証するミドルウェア
 class APIAuthentificationMiddleware
@@ -16,6 +17,7 @@ class APIAuthentificationMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+
          // リクエストからpublic IDとsecret keyを取得
          $publicId = $request->header('X-Public-ID');
          $secretKey = $request->header('X-Secret-Key');

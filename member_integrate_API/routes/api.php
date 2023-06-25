@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\IntegrateController;
+use App\Http\Middleware\APIAuthentificationMiddleware;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('get_member',[IntegrateController::class,'getMember1']);
+//2023.6.25 middlewareでAPIrequestの認証をします。
+Route::post('get_member',[IntegrateController::class,'getMember1'])->middleware(APIAuthentificationMiddleware::class);
