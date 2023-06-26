@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     use HasFactory;
-    protected $connection = 'snack'; //ここも、本番環境で変更
+    // protected $connection = 'snack'; //ここも、本番環境で変更
     protected $guarded=array('id');
 
     public static $rules=array(
