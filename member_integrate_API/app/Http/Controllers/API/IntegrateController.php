@@ -59,13 +59,49 @@ class IntegrateController extends Controller
     }
 
 
+
+    
+
+
+    
+    //2023.6.26 Chat APIにて利用する。snackアプリから直接requestする。
+    public function getMember2(Request $request){
+        // chatアプリから送られてきたメールアドレスとパスワードを取得
+        $mail = $request->input('mail');
+        $password = $request->input('pass');
+
+        //データを受け取っているかテスト。テストは成功
+        // Chatデータベースから該当するユーザー情報を取得
+        $member = Member::where('mail', $mail)
+            ->where('password', $password)
+            ->first();
+
+        if (isset($member)) {
+            return response()->json([
+                'name'=>$member->name,
+                'mail'=>$member->mail,
+                'pass'=>$member->password,
+                'image'=>$member->image,
+                'error'=>null,
+            ]);
+        }else{
+
+            // ユーザー情報と画像データを含んだレスポンスを返す
+            
+            return response()->json([
+                "error"=>"お探しのアカウントは見つかりませんでした。"
+            ]);
+        }
+    }
+
+
     //DB接続が正常にできるかを単独で確認。　データベース接続自体はうまくいっています。
     public function checkDB(Request $request){
-        $mail="sample1.com";
-        $password="sample";
+        $mail="kinako.com";
+        $password="kinako";
 
         $member = Member::where('mail', $mail)
-            ->where('pass', $password)
+            ->where('password', $password)
             ->first();
         
         return view("checkDB",[

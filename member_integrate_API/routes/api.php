@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //2023.6.25 middlewareでAPIrequestの認証をします。
 Route::post('get_member',[IntegrateController::class,'getMember1'])->middleware(APIAuthentificationMiddleware::class);
+Route::post('get_member2',[IntegrateController::class,'getMember2'])->middleware(APIAuthentificationMiddleware::class);
