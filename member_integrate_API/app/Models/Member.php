@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     use HasFactory;
-    protected $connection = 'chat'; //ここも、本番環境で変更
+    //protected $connection = 'chat'; //ここも、本番環境で変更
     //↑ここの設定次第でエラーが変わる？
     protected $guarded=array('id');
 
